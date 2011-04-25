@@ -134,3 +134,6 @@
 [submodule "bundle/thermometer"]
 	path = bundle/thermometer
 	url = git://github.com/dgsuarez/thermometer.git
+[submodule "bundle/conque-term"]
+	path = bundle/conque-term
+	url = git://github.com/rosenfeld/conque-term.git
