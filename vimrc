@@ -52,7 +52,7 @@ set fo=l
 set statusline=%f       "tail of the filename
 
 "Git
-set statusline+=[%{GitBranch()}]
+set statusline+=[%{g:HgStatusForFile()}]
 
 "RVM
 set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
@@ -229,8 +229,8 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme railscasts
-        set guifont=Monospace\ Bold\ 12
+        colorscheme eclipse
+        set guifont=Monospace\ Bold\ 10
     endif
 
     if has("gui_mac") || has("gui_macvim")
