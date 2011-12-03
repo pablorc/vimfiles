@@ -230,7 +230,7 @@ if has("gui_running")
     if has("gui_gnome")
         set term=gnome-256color
         colorscheme eclipse
-        set guifont=Monospace\ Bold\ 10
+        set guifont=Monospace\ Regular\ 10
     endif
 
     if has("gui_mac") || has("gui_macvim")
