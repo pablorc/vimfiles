@@ -51,8 +51,11 @@ set fo=l
 "statusline setup
 set statusline=%f       "tail of the filename
 
-"Git
-set statusline+=[%{g:HgStatusForFile()}]
+"SCM
+
+
+set statusline+=%{g:HgStatusLine()}
+set statusline+=%{fugitive#statusline()}
 
 "RVM
 set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
