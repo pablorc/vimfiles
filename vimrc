@@ -413,3 +413,5 @@ let g:user_zen_settings = {
  \}
 
 let g:SuperTabCrMapping = 0 "fix for supertab - endwise bug
+
+au BufNewFile,BufRead *.prawn set filetype=ruby
