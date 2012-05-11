@@ -146,3 +146,6 @@
 [submodule "vim-jquery"]
 	path = vim-jquery
 	url = https://github.com/itspriddle/vim-jquery.git
+[submodule "bundle/vim-autoclose"]
+	path = bundle/vim-autoclose
+	url = git://github.com/Townk/vim-autoclose.git
