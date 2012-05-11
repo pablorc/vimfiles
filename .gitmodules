@@ -140,3 +140,9 @@
 [submodule "bundle/vim-bundler"]
 	path = bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim-jquery"]
+	path = vim-jquery
+	url = https://github.com/itspriddle/vim-jquery.git
