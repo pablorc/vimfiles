@@ -1,6 +1,7 @@
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype off
 
+
 "load pathogen managed plugins
 call pathogen#infect()
 
@@ -412,6 +413,5 @@ let g:user_zen_settings = {
   \  },
  \}
 
-let g:SuperTabCrMapping = 0 "fix for supertab - endwise bug
-
 au BufNewFile,BufRead *.prawn set filetype=ruby
+let g:AutoCloseExpandEnterOn = ""
