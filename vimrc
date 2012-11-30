@@ -340,6 +340,9 @@ function! s:HighlightLongLines(width)
     endif
 endfunction
 
+"map for ctrl-p
+map <leader>t :CtrlP<CR>
+
 "key mapping for window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
