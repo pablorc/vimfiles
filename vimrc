@@ -340,6 +340,11 @@ function! s:HighlightLongLines(width)
     endif
 endfunction
 
+"CtrlP
+
+let g:ctrlp_match_window_bottom=0
+let g:ctrlp_match_window_reversed = 0
+
 "map for ctrl-p
 map <leader>t :CtrlP<CR>
 
