@@ -227,10 +227,10 @@ if has("gui_running")
     set guitablabel=%M%t
     set lines=40
     set columns=115
+    colorscheme eclipse
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme eclipse
         set guifont=Monospace\ Regular\ 10
     endif
 
