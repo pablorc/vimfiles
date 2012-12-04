@@ -57,7 +57,9 @@ hi Statement  guifg=#007020 gui=bold
 
 
 " HTML: arguments
-hi Type       guifg=#e5a00d gui=italic
+"hi Type       guifg=#e5a00d gui=italic
+"hi Type       guifg=#3232ff gui=italic
+hi Type       guifg=#5E2612 gui=italic
 " Python: Standard exceptions, True&False
 hi Structure  guifg=#007020 gui=italic
 hi Function   guifg=#06287e gui=italic

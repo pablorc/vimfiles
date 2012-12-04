@@ -227,7 +227,7 @@ if has("gui_running")
     set guitablabel=%M%t
     set lines=40
     set columns=115
-    colorscheme eclipse
+    colorscheme pyte
 
     if has("gui_gnome")
         set term=gnome-256color
