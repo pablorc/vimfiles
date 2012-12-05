@@ -348,6 +348,9 @@ let g:ctrlp_match_window_reversed = 0
 "map for ctrl-p
 map <leader>t :CtrlP<CR>
 
+"map for gundo
+map <Leader>g :GundoToggle<CR>
+
 "key mapping for window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
