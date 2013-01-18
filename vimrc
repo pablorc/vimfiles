@@ -391,3 +391,8 @@ let g:user_zen_settings = {
 
 au BufNewFile,BufRead *.prawn set filetype=ruby
 let g:AutoCloseExpandEnterOn = ""
+
+
+let mapleader = "ñ"
+
+
