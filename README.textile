@@ -1,3 +1,2 @@
 h1. This fork
-
 This is is a fork of "akitaonrails vimfiles":https://github.com/akitaonrails/vimfiles with some more plugins and some configuration changes.
