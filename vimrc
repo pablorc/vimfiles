@@ -25,6 +25,8 @@ set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
 
+let mapleader = "ñ"
+
 "mapping for command key to map navigation thru display lines instead
 "of just numbered lines
 vmap <D-j> gj
@@ -393,6 +395,5 @@ au BufNewFile,BufRead *.prawn set filetype=ruby
 let g:AutoCloseExpandEnterOn = ""
 
 
-let mapleader = "ñ"
 
 
