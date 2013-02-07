@@ -152,3 +152,6 @@
 [submodule "bundle/handlebars"]
 	path = bundle/handlebars
 	url = git://github.com/nono/vim-handlebars.git
+[submodule "bin/matcher"]
+	path = bin/matcher
+	url = https://github.com/burke/matcher.git
