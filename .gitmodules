@@ -155,3 +155,18 @@
 [submodule "bin/matcher"]
 	path = bin/matcher
 	url = https://github.com/burke/matcher.git
+[submodule "bundle/CSApprox"]
+	path = bundle/CSApprox
+	url = https://github.com/vim-scripts/CSApprox.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundle/camelcasemotion"]
+	path = bundle/camelcasemotion
+	url = https://github.com/vim-scripts/camelcasemotion
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/vim-scripts/matchit.zip
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
