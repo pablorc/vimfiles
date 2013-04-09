@@ -98,24 +98,12 @@
 [submodule "bundle/abolish"]
 	path = bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
-[submodule "bundle/liftweb"]
-	path = bundle/liftweb
-	url = git://github.com/Shadowfiend/liftweb-vim.git
 [submodule "bundle/scala"]
 	path = bundle/scala
 	url = git://github.com/akhil/scala-vim-bundle.git
-[submodule "bundle/grails-vim"]
-	path = bundle/grails-vim
-	url = git://github.com/felipero/grails-vim.git
-[submodule "bundle/clojure"]
-	path = bundle/clojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "bundle/zencoding-vim"]
 	path = bundle/zencoding-vim
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
-	url = git://github.com/pangloss/vim-javascript.git
 [submodule "bundle/vim-rake"]
 	path = bundle/vim-rake
 	url = git://github.com/tpope/vim-rake.git
@@ -134,9 +122,6 @@
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = git://github.com/Townk/vim-autoclose.git
-[submodule "bundle/vim-jquery"]
-	path = bundle/vim-jquery
-	url = https://github.com/itspriddle/vim-jquery.git
 [submodule "bundle/ctrlp.vim"]
 	path = bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
@@ -155,3 +140,18 @@
 [submodule "bin/matcher"]
 	path = bin/matcher
 	url = https://github.com/burke/matcher.git
+[submodule "bundle/CSApprox"]
+	path = bundle/CSApprox
+	url = https://github.com/vim-scripts/CSApprox.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundle/camelcasemotion"]
+	path = bundle/camelcasemotion
+	url = https://github.com/vim-scripts/camelcasemotion
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/vim-scripts/matchit.zip
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
