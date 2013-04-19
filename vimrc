@@ -278,12 +278,6 @@ nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
-"map to bufexplorer
-nnoremap <leader>b :BufExplorer<cr>
-
-"nao for conqeterm
-nnoremap <leader>s :ConqueTermSplit bash<cr>
-
 
 "map Q to something useful
 noremap Q gq
