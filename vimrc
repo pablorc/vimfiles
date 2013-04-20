@@ -269,8 +269,11 @@ endif
 " PeepOpen uses <Leader>p as well so you will need to redefine it so something
 " else in your ~/.vimrc file, such as:
 " nmap <silent> <Leader>q <Plug>PeepOpen
+
+let g:buffergator_suppress_keymaps = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
+silent! nmap <silent> <Leader>b :BuffergatorToggle<CR>
 silent! nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
 
