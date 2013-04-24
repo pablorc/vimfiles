@@ -52,8 +52,13 @@ set fo=l
 "statusline setup
 set statusline=%f       "tail of the filename
 
-"SCM
+"Syntastic
 
+set statusline+=%#warningmsg#
+set statusline+=\%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"SCM
 
 set statusline+=%{g:HgStatusLine()}
 set statusline+=%{fugitive#statusline()}
