@@ -282,6 +282,15 @@ silent! nmap <silent> <Leader>b :BuffergatorToggle<CR>
 silent! nmap <silent> <Leader>p :NERDTreeMirrorToggle<CR>
 nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
 
+let g:neocomplcache_enable_at_startup = 1
+
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
+function! s:check_back_space()"{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~ '\s'
+endfunction"}}
+
+
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
