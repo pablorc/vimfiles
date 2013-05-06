@@ -139,9 +139,6 @@
 [submodule "bundle/CSApprox"]
 	path = bundle/CSApprox
 	url = https://github.com/vim-scripts/CSApprox.git
-[submodule "bundle/bufexplorer"]
-	path = bundle/bufexplorer
-	url = https://github.com/vim-scripts/bufexplorer.zip.git
 [submodule "bundle/camelcasemotion"]
 	path = bundle/camelcasemotion
 	url = https://github.com/vim-scripts/camelcasemotion.git
