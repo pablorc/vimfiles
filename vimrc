@@ -278,6 +278,8 @@ endif
 let g:buffergator_suppress_keymaps = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
+ let g:PreviewBrowsers='google-chrome,firefox'
+
 silent! nmap <silent> <Leader>b :BuffergatorToggle<CR>
 silent! nmap <silent> <Leader>p :NERDTreeTabsToggle<CR>
 nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
