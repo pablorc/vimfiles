@@ -229,7 +229,6 @@ if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
 
-    colorscheme railscasts
     set guitablabel=%M%t
     set lines=40
     set columns=115
@@ -261,14 +260,13 @@ if has("gui_running")
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
-
-    "set railscasts colorscheme when running vim in gnome terminal
-    if $COLORTERM == 'gnome-terminal'
-        set term=gnome-256color
-        colorscheme railscasts
+    if match($TERM, "256") != -1
+      set background=dark
+      colorscheme solarized
     else
-        colorscheme default
+      colorscheme default
     endif
+
 endif
 
 " PeepOpen uses <Leader>p as well so you will need to redefine it so something
