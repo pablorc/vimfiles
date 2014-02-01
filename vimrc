@@ -299,3 +299,6 @@ let g:user_zen_settings = {
 
 au BufNewFile,BufRead *.prawn set filetype=ruby
 let g:AutoCloseExpandEnterOn = ""
+
+"options for markdown files
+au BufNewFile,BufRead *.md set tw=78 formatoptions=t1 spell
