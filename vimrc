@@ -302,3 +302,5 @@ let g:AutoCloseExpandEnterOn = ""
 
 "options for markdown files
 au BufNewFile,BufRead *.md set tw=78 formatoptions=t1 spell
+
+noremap Q gqap
