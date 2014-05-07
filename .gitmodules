@@ -154,3 +154,6 @@
 [submodule "bundle/vim-classpath"]
 	path = bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath
+[submodule "bundle/vim-multiple-cursors"]
+	path = bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
