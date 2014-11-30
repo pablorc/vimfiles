@@ -1,9 +1,69 @@
-"load pathogen managed plugins
-call pathogen#infect()
-
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+
+" Required Vundle setup
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
+" Vundles
+
+Plugin 'burke/matcher'
+Plugin 'vim-scripts/CSApprox'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-abolish'
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/camelcasemotion'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'nono/vim-handlebars'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'Shougo/neocomplcache'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'akhil/scala-vim-bundle'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ciaranm/securemodelines'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'dgsuarez/thermometer'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'Townk/vim-autoclose'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fireplace'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'greyblake/vim-preview'
+Plugin 'tpope/vim-rake'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kana/vim-textobj-user'
+Plugin 'lukaszb/vim-web-indent'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
