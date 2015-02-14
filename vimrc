@@ -211,7 +211,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 
 silent! nmap <silent> <Leader>b :BuffergatorToggle<CR>
 silent! nmap <silent> <Leader>p :NERDTreeTabsToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
 
 let g:neocomplcache_enable_at_startup = 1
 
