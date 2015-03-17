@@ -82,7 +82,7 @@ set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
 
-"""let mapleader = "ñ"
+let mapleader = "ñ"
 """
 """"mapping for command key to map navigation thru display lines instead
 """"of just numbered lines
@@ -149,6 +149,7 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*platforms/**   "To ignore platform/ directories for Cordova applications
 
 "display tabs and trailing spaces
 "set list
@@ -380,5 +381,6 @@ let g:AutoCloseExpandEnterOn = ""
 au BufNewFile,BufRead *.md set tw=78 formatoptions=t1 spell
 
 noremap Q gqap
+
 
 :imap jj <Esc>
