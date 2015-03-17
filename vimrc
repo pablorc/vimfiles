@@ -1,13 +1,71 @@
-"necessary on some Linux distros for pathogen to properly load bundles
-filetype off
-
-
-"load pathogen managed plugins
-call pathogen#infect()
-
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+
+" Required Vundle setup
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
+" Vundles
+
+Plugin 'burke/matcher'
+Plugin 'vim-scripts/CSApprox'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-abolish'
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/camelcasemotion'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'nono/vim-handlebars'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'Shougo/neocomplcache'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'akhil/scala-vim-bundle'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ciaranm/securemodelines'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'dgsuarez/thermometer'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-projectionist'
+Plugin 'Townk/vim-autoclose'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-fireplace'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'greyblake/vim-preview'
+Plugin 'tpope/vim-rake'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kana/vim-textobj-user'
+Plugin 'lukaszb/vim-web-indent'
+Plugin 'tpope/vim-rsi'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -25,6 +83,7 @@ set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
 
+<<<<<<< HEAD
 let mapleader = "ñ"
 
 "mapping for command key to map navigation thru display lines instead
@@ -40,6 +99,8 @@ nmap <D-4> g$
 nmap <D-6> g^
 nmap <D-0> g^
 
+=======
+>>>>>>> diego/master
 "add some line space for easy reading
 set linespace=4
 
@@ -54,8 +115,13 @@ set fo=l
 "statusline setup
 set statusline=%f       "tail of the filename
 
-"SCM
+"Syntastic
 
+set statusline+=%#warningmsg#
+set statusline+=\%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"SCM
 
 set statusline+=%{g:HgStatusLine()}
 set statusline+=%{fugitive#statusline()}
@@ -72,113 +138,6 @@ set laststatus=2
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T
 
-"recalculate the trailing whitespace warning when idle, and after saving
-autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
-
-"return '[\s]' if trailing white space is detected
-"return '' otherwise
-function! StatuslineTrailingSpaceWarning()
-    if !exists("b:statusline_trailing_space_warning")
-        if search('\s\+$', 'nw') != 0
-            let b:statusline_trailing_space_warning = '[\s]'
-        else
-            let b:statusline_trailing_space_warning = ''
-        endif
-    endif
-    return b:statusline_trailing_space_warning
-endfunction
-
-
-"return the syntax highlight group under the cursor ''
-function! StatuslineCurrentHighlight()
-    let name = synIDattr(synID(line('.'),col('.'),1),'name')
-    if name == ''
-        return ''
-    else
-        return '[' . name . ']'
-    endif
-endfunction
-
-"recalculate the tab warning flag when idle and after writing
-autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
-
-"return '[&et]' if &et is set wrong
-"return '[mixed-indenting]' if spaces and tabs are used to indent
-"return an empty string if everything is fine
-function! StatuslineTabWarning()
-    if !exists("b:statusline_tab_warning")
-        let tabs = search('^\t', 'nw') != 0
-        let spaces = search('^ ', 'nw') != 0
-
-        if tabs && spaces
-            let b:statusline_tab_warning =  '[mixed-indenting]'
-        elseif (spaces && !&et) || (tabs && &et)
-            let b:statusline_tab_warning = '[&et]'
-        else
-            let b:statusline_tab_warning = ''
-        endif
-    endif
-    return b:statusline_tab_warning
-endfunction
-
-"recalculate the long line warning when idle and after saving
-autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
-
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
-"no &textwidth is set)
-"
-"return '' if no long lines
-"return '[#x,my,$z] if long lines are found, were x is the number of long
-"lines, y is the median length of the long lines and z is the length of the
-"longest line
-function! StatuslineLongLineWarning()
-    if !exists("b:statusline_long_line_warning")
-        let long_line_lens = s:LongLines()
-
-        if len(long_line_lens) > 0
-            let b:statusline_long_line_warning = "[" .
-                        \ '#' . len(long_line_lens) . "," .
-                        \ 'm' . s:Median(long_line_lens) . "," .
-                        \ '$' . max(long_line_lens) . "]"
-        else
-            let b:statusline_long_line_warning = ""
-        endif
-    endif
-    return b:statusline_long_line_warning
-endfunction
-
-"return a list containing the lengths of the long lines in this buffer
-function! s:LongLines()
-    let threshold = (&tw ? &tw : 80)
-    let spaces = repeat(" ", &ts)
-
-    let long_line_lens = []
-
-    let i = 1
-    while i <= line("$")
-        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
-        if len > threshold
-            call add(long_line_lens, len)
-        endif
-        let i += 1
-    endwhile
-
-    return long_line_lens
-endfunction
-
-"find the median of the given array of numbers
-function! s:Median(nums)
-    let nums = sort(a:nums)
-    let l = len(nums)
-
-    if l % 2 == 1
-        let i = (l-1) / 2
-        return nums[i]
-    else
-        return (nums[l/2] + nums[(l/2)-1]) / 2
-    endif
-endfunction
-
 "indent settings
 set shiftwidth=2
 set softtabstop=2
@@ -193,13 +152,12 @@ set nofoldenable        "dont fold by default
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 "display tabs and trailing spaces
 "set list
 "set listchars=tab:\ \ ,extends:>,precedes:<
 " disabling list because it interferes with soft wrap
-
-set formatoptions-=o "dont continue comments when pushing o/O
 
 "vertical/horizontal scroll off settings
 set scrolloff=3
@@ -225,7 +183,6 @@ if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
 
-    colorscheme railscasts
     set guitablabel=%M%t
     set lines=40
     set columns=115
@@ -257,32 +214,48 @@ if has("gui_running")
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
-
-    "set railscasts colorscheme when running vim in gnome terminal
-    if $COLORTERM == 'gnome-terminal'
-        set term=gnome-256color
-        colorscheme railscasts
+    if match($TERM, "256") != -1
+      set background=dark
+      colorscheme solarized
     else
-        colorscheme default
+      colorscheme default
     endif
+
 endif
 
-" PeepOpen uses <Leader>p as well so you will need to redefine it so something
-" else in your ~/.vimrc file, such as:
-" nmap <silent> <Leader>q <Plug>PeepOpen
+let g:buffergator_suppress_keymaps = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
-silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+ let g:PreviewBrowsers='google-chrome,firefox'
+
+silent! nmap <silent> <Leader>b :BuffergatorToggle<CR>
+silent! nmap <silent> <Leader>p :NERDTreeTabsToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
+
+let g:neocomplcache_enable_at_startup = 1
+
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
+function! s:check_back_space()"{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~ '\s'
+endfunction"}}
+
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
-
-"map to bufexplorer
-nnoremap <leader>b :BufExplorer<cr>
-
-"nao for conqeterm
-nnoremap <leader>s :ConqueTermSplit bash<cr>
 
 
 "map Q to something useful
@@ -330,19 +303,38 @@ function! SetCursorPosition()
     end
 endfunction
 
-"define :HighlightLongLines command to highlight the offending parts of
-"lines that are longer than the specified length (defaulting to 80)
-command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-function! s:HighlightLongLines(width)
-    let targetWidth = a:width != '' ? a:width : 79
-    if targetWidth > 0
-        exec 'match Todo /\%>' . (targetWidth) . 'v/'
-    else
-        echomsg "Usage: HighlightLongLines [natural number]"
-    endif
-endfunction
-
 "CtrlP
+
+let g:ctrlp_custom_ignore = '\v.*\/vendor\/.*'
+
+let g:path_to_matcher = "~/.vim/bin/matcher/matcher"
+
+if !empty(glob(g:path_to_matcher))
+  let g:ctrlp_match_func = { 'match': 'GoodMatch' }
+endif
+
+function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
+
+  " Create a cache file if not yet exists
+  let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
+  if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+    call writefile(a:items, cachefile)
+  endif
+  if !filereadable(cachefile)
+    return []
+  endif
+
+  " a:mmode is currently ignored. In the future, we should probably do
+  " something about that. the matcher behaves like "full-line".
+  let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
+  if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
+    let cmd = cmd.'--no-dotfiles '
+  endif
+  let cmd = cmd.a:str
+
+  return split(system(cmd), "\n")
+
+endfunction
 
 let g:ctrlp_match_window_bottom=0
 let g:ctrlp_match_window_reversed = 0
@@ -366,12 +358,6 @@ nmap <C-s> :w<CR>
 nmap <C-Tab> gt
 nmap <C-S-Tab> gT
 
-"Key mapping for textmate-like indentation
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
-
 let ScreenShot = {'Icon':0, 'Credits':0, 'force_background':'#FFFFFF'}
 
 "Enabling Zencoding
@@ -394,6 +380,15 @@ let g:user_zen_settings = {
 au BufNewFile,BufRead *.prawn set filetype=ruby
 let g:AutoCloseExpandEnterOn = ""
 
+<<<<<<< HEAD
 
 
 
+=======
+"options for markdown files
+au BufNewFile,BufRead *.md set tw=78 formatoptions=t1 spell
+
+noremap Q gqap
+
+:imap jj <Esc>
+>>>>>>> diego/master

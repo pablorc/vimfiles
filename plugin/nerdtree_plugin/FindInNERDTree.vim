@@ -32,7 +32,7 @@ function! FindInNERDTree(...)
     if l:nerdbuf
 			silent! exec bufwinnr(l:nerdbuf) . "wincmd w"
     else
-      silent! exec "NERDTreeToggle"
+      silent! exec "NERDTreeTabsToggle"
     endif
 
     call cursor(g:NERDTreeFileNode.GetRootLineNum(), 1)
