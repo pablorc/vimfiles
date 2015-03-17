@@ -2,7 +2,6 @@
 "This must be first, because it changes other options as a side effect.
 set nocompatible
 
-
 " Required Vundle setup
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
