@@ -61,6 +61,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'kana/vim-textobj-user'
 Plugin 'lukaszb/vim-web-indent'
 Plugin 'tpope/vim-rsi'
+Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
